@@ -1,5 +1,24 @@
-import { Router } from 'express'
+import { Router } from "express";
 
-const router = Router()
+const controler = (req, res) => {
+  res.send({ message: "hello" });
+};
 
-export default router
+const router = Router();
+
+// /api/item
+
+router
+  .route("/")
+  .get(controler)
+  .post(controler);
+
+// /api/item/:id
+
+router
+  .route("/:id")
+  .get(controler)
+  .put(controler)
+  .delete(controler);
+
+export default router;
